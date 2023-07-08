@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/postsFragment"
+        android:title="@string/menu_posts"
+        android:icon="@drawable/ic_posts"
+        />
+    <item
+        android:id="@+id/addPostFragment"
+        android:title="@string/menu_add_post"
+        android:icon="@drawable/ic_add_post"
+        />
+    <item
+        android:id="@+id/settingsFragment"
+        android:title="@string/menu_settings"
+        android:icon="@drawable/ic_settings"
+        />
+
+</menu>
