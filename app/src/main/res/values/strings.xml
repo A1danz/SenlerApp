@@ -7,7 +7,7 @@
     <string name="hint_token_vk">Токен VK</string>
     <string name="hint_token_inst">Токен Instagram</string>
     <string name="hint_id_vk_group">Id-группы VK</string>
-    <string name="hint_id_tg_group">Id-группы Telegram</string>
+    <string name="hint_tg_group_id">Id-группы Telegram</string>
     <string name="check_token">Проверить</string>
     <string name="instruction">Инструкция</string>
     <string name="save">Сохранить</string>

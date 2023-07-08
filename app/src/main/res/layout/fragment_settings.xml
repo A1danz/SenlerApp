@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_token_inst"
+        android:id="@+id/til_inst_token"
         style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/til_vk_group_id">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_token_inst"
+            android:id="@+id/tiet_inst_token"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular" />
@@ -45,7 +45,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_token_vk"
+        android:id="@+id/til_vk_token"
         style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/til_tg_group_id">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_token_vk"
+            android:id="@+id/tiet_vk_token"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular" />
@@ -78,7 +78,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="-32dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/hint_id_tg_group"
+        android:hint="@string/hint_tg_group_id"
         app:boxStrokeColor="#00BCD4"
         app:endIconMode="clear_text"
         app:hintTextColor="#00BCD4"
@@ -86,7 +86,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_token_tg">
+        app:layout_constraintTop_toBottomOf="@+id/til_tg_token">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_tg_group_id"
@@ -112,7 +112,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_token_vk">
+        app:layout_constraintTop_toBottomOf="@+id/til_vk_token">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiet_vk_group_id"
@@ -123,7 +123,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_token_tg"
+        android:id="@+id/til_tg_token"
         style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_settings_title">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_token_tg"
+            android:id="@+id/tiet_tg_token"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular" />
@@ -157,13 +157,13 @@
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/instruction"
         android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@+id/til_token_inst"
+        app:layout_constraintEnd_toEndOf="@+id/til_inst_token"
         app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="@+id/til_token_inst"
-        app:layout_constraintTop_toBottomOf="@+id/til_token_inst" />
+        app:layout_constraintStart_toStartOf="@+id/til_inst_token"
+        app:layout_constraintTop_toBottomOf="@+id/til_inst_token" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button6"
+        android:id="@+id/btn_save"
         android:layout_width="227dp"
         android:layout_height="80dp"
         android:background="@drawable/save_btn"
