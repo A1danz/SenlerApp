@@ -1,6 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment"/>
+    tools:context=".SettingsFragment">
+
+    <TextView
+        android:id="@+id/tv_settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/menu_settings"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_token_inst"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/hint_token_inst"
+        app:boxStrokeColor="#9500FF"
+        app:endIconMode="clear_text"
+        app:endIconTint="#9500FF"
+        app:hintTextColor="#9500FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_vk_group_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_token_inst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_token_vk"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/hint_token_vk"
+        app:boxStrokeColor="#0056FF"
+        app:endIconMode="clear_text"
+        app:endIconTint="#0056FF"
+        app:hintTextColor="#FF0056FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_tg_group_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_token_vk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_tg_group_id"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/hint_id_tg_group"
+        app:boxStrokeColor="#00BCD4"
+        app:endIconMode="clear_text"
+        app:hintTextColor="#00BCD4"
+        app:endIconTint="#00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_token_tg">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_tg_group_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_vk_group_id"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/hint_id_vk_group"
+        app:boxStrokeColor="#FF0056FF"
+        app:endIconMode="clear_text"
+        app:hintTextColor="#FF0056FF"
+        app:endIconTint="#FF0056FF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_token_vk">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_vk_group_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_token_tg"
+        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/hint_token_tg"
+        app:boxStrokeColor="#FF00BCD4"
+        app:endIconMode="clear_text"
+        app:endIconTint="#FF00BCD4"
+        app:hintTextColor="#FF00BCD4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_settings_title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_token_tg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_instruction"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="-6dp"
+        android:background="@drawable/instruction_btn"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/instruction"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/til_token_inst"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="@+id/til_token_inst"
+        app:layout_constraintTop_toBottomOf="@+id/til_token_inst" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button6"
+        android:layout_width="227dp"
+        android:layout_height="80dp"
+        android:background="@drawable/save_btn"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_instruction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
