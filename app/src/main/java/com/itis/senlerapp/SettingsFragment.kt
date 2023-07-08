@@ -45,4 +45,16 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         dbManager?.close()
     }
 
+    fun getConfig() : HashMap<String, String>? {
+        dbManager?.open()
+        return dbManager?.readConfig()
+    }
+
+    fun fillConfigFields() {
+//        var map = getConfig()
+//
+//        binding?.tietTgToken?.setText(map?.get(Settings.COLUMN_NAME_TG_TOKEN).toString())
+        TODO("Nado tut dodelat")
+    }
+
 }
