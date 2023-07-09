@@ -5,6 +5,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import com.itis.senlerapp.SettingsFragment
+import java.io.FileInputStream
 
 class DbManager(val context: Context) {
     val dbHelper = DbHelper(context)
@@ -57,6 +58,13 @@ class DbManager(val context: Context) {
 
     fun close() {
         dbHelper.close()
+    }
+
+    fun createPost(text : String, paths : ArrayList<String>) {
+        for (path in paths) {
+            var fis : FileInputStream = FileInputStream(path)
+        }
+
     }
 
 }
