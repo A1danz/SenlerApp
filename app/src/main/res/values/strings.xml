@@ -15,4 +15,8 @@
     <string name="add_post_add_picture">Добавить фотографии</string>
     <string name="add_post_add_text">Добавить текст</string>
     <string name="add_post_to_post">Отправить пост</string>
+    <string name="add_post_vk_name">Vk</string>
+    <string name="add_post_vk_group_name">Vk group</string>
+    <string name="add_post_tg_name">Tg</string>
+    <string name="add_post_inst_name">Inst</string>
 </resources>
