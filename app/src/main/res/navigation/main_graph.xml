@@ -32,5 +32,17 @@
         <action
             android:id="@+id/action_settingsFragment3_to_addPostFragment2"
             app:destination="@id/addPostFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_instructionFragment"
+            app:destination="@id/instructionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionFragment"
+        android:name="com.itis.senlerapp.InstructionFragment"
+        android:label="fragment_instruction"
+        tools:layout="@layout/fragment_instruction" >
+        <action
+            android:id="@+id/action_instructionFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
 </navigation>
