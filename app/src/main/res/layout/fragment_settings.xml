@@ -156,7 +156,7 @@
         android:layout_marginTop="-6dp"
         android:background="@drawable/instruction_btn"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/instruction"
+        android:text="@string/instruction_title"
         android:textSize="11sp"
         app:layout_constraintEnd_toEndOf="@+id/til_inst_token"
         app:layout_constraintHorizontal_bias="0.95"

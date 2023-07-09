@@ -9,8 +9,9 @@
     <string name="hint_id_vk_group">Id-группы VK</string>
     <string name="hint_tg_group_id">Id-группы Telegram</string>
     <string name="check_token">Проверить</string>
-    <string name="instruction">Инструкция</string>
+    <string name="instruction_title">Инструкция</string>
     <string name="save">Сохранить</string>
+
     <string name="add_post">Добавить пост</string>
     <string name="add_post_add_picture">Добавить фотографии</string>
     <string name="add_post_add_text">Добавить текст</string>
@@ -19,4 +20,22 @@
     <string name="add_post_vk_group_name">Vk group</string>
     <string name="add_post_tg_name">Tg</string>
     <string name="add_post_inst_name">Inst</string>
+    <string name="instruction"><b>VK-account</b><br />
+1) Перейти на сайт: https://vkhost.github.io/<br />
+2) Выбрать Kate-Mobile<br />
+3) Нажать “Разрешить”<br />
+4) Скопировать часть адресной строки от access_token= до &amp;expires_in<br />
+<b>VK-group</b><br />
+1)Скопируйте ссылку сообщества, в котором у вас есть права на добавление постов.<br />
+2)Вставьте в поле “группа ВК”<br />
+<b>Telegram</b><br />
+1)	Создайте бота в Telegram с помощью @BotFather, если у вас его нет.<br />
+2)	Скопируйте токен телеграм-бота и вставьте его в поле “токен телеграм”<br />
+3)	Введите ссылку на свой канал в поле “канал телеграм”<br />
+4)	Добавьте в канал бота и выдайте ему роль администратора<br />
+<b>Instagram</b><br />
+1)	Перейдите на сайт developers.facebook.com<br />
+2)	Перейдите в раздел graphApi и получите токен.<br />
+</string>
+
 </resources>
