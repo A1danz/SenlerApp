@@ -20,7 +20,9 @@
     <string name="add_post_vk_group_name">Vk group</string>
     <string name="add_post_tg_name">Tg</string>
     <string name="add_post_inst_name">Inst</string>
-    <string name="instruction"><b>VK-account</b>\n1) Перейти на сайт: https://vkhost.github.io/\n2) Выбрать Kate-Mobile \n3) Нажать “Разрешить”\n4) Скопировать часть адресной строки от access_token= до &amp;expires_in\n\n<b>VK-group</b>\n1)Скопируйте ссылку сообщества, в котором у вас есть права на добавление постов.\n2)Вставьте в поле “группа ВК”\n\n<b>Telegram</b>\n1)	Создайте бота в Telegram с помощью @BotFather, если у вас его нет.\n2)	Скопируйте токен телеграм-бота и вставьте его в поле “токен телеграм”\n3)	Введите ссылку на свой канал в поле “канал телеграм”\n4)	Добавьте в канал бота и выдайте ему роль администратора\n\n<b>Instagram</b>\n1)	Перейдите на сайт developers.facebook.com\n2)	Перейдите в раздел graphApi и получите токен.\n
-</string>
 
+    <string name="instruction"><b>VK-account</b>\n1) Перейти на сайт: https://vkhost.github.io/\n2) Выбрать Kate-Mobile \n3) Нажать “Разрешить”\n4) Скопировать часть адресной строки от access_token= до &amp;expires_in\n\n<b>VK-group</b>\n1)Скопируйте ссылку сообщества, в котором у вас есть права на добавление постов.\n2)Вставьте в поле “группа ВК”\n\n<b>Telegram</b>\n1)	Создайте бота в Telegram с помощью @BotFather, если у вас его нет.\n2)	Скопируйте токен телеграм-бота и вставьте его в поле “токен телеграм”\n3)	Введите ссылку на свой канал в поле “канал телеграм”\n4)	Добавьте в канал бота и выдайте ему роль администратора\n\n<b>Instagram</b>\n1)	Перейдите на сайт developers.facebook.com\n2)	Перейдите в раздел graphApi и получите токен.\n
+    </string>
+
+    <string name="posts_title">добавленные посты</string>
 </resources>
