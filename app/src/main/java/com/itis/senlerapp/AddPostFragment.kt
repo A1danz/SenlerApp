@@ -6,9 +6,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.FrameLayout
+import android.widget.GridLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.github.dhaval2404.imagepicker.ImagePicker
+import androidx.fragment.app.FragmentContainer
+import androidx.fragment.app.FragmentContainerView
+import androidx.recyclerview.widget.GridLayoutManager
+//import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.snackbar.Snackbar
 import com.itis.senlerapp.databinding.FragmentAddPostBinding
 import com.itis.senlerapp.db.DbManager
@@ -18,12 +23,16 @@ import java.net.URI
 class AddPostFragment : Fragment(R.layout.fragment_add_post) {
     private var binding : FragmentAddPostBinding? = null
     private var selectedPhotos : MutableList<Uri>? = null
+    private var rvAdapterPhotos : AddPhotoAdapter? = null
     private var dbManager : DbManager? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddPostBinding.bind(view)
+        rvAdapterPhotos = AddPhotoAdapter()
+        binding?.rvAddPostPhotos?.adapter = rvAdapterPhotos
+        binding?.rvAddPostPhotos?.layoutManager = GridLayoutManager(requireContext(),3)
 
         if (dbManager == null) {
             dbManager = DbManager(view.context)
@@ -69,6 +78,8 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
                 selectedPhotos!!.add(uri!!)
             }
         }
+
+        rvAdapterPhotos?.updateDataset(selectedPhotos)
     }
 
     fun createPost() {
