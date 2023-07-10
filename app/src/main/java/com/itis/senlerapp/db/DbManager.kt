@@ -69,6 +69,7 @@ class DbManager(val context: Context) {
             put(Posts.COLUMN_NAME_VK_GROUP, states.get(Posts.COLUMN_NAME_VK_GROUP))
             put(Posts.COLUMN_NAME_TG, states.get(Posts.COLUMN_NAME_TG))
             put(Posts.COLUMN_NAME_INST, states.get(Posts.COLUMN_NAME_INST))
+            put(Posts.COLUMN_NAME_DATE, 123)
         }
 
         db?.insert(Posts.TABLE_NAME, null, values)
