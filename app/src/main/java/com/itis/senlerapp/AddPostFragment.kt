@@ -11,21 +11,27 @@ import androidx.fragment.app.Fragment
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.snackbar.Snackbar
 import com.itis.senlerapp.databinding.FragmentAddPostBinding
+import com.itis.senlerapp.db.DbManager
+import com.itis.senlerapp.db.Posts
 import java.net.URI
 
 class AddPostFragment : Fragment(R.layout.fragment_add_post) {
     private var binding : FragmentAddPostBinding? = null
     private var selectedPhotos : MutableList<Uri>? = null
+    private var dbManager : DbManager? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentAddPostBinding.bind(view)
 
+        if (dbManager == null) {
+            dbManager = DbManager(view.context)
+        }
+
         binding?.btnAddPhotos?.setOnClickListener {
             openGallery()
         }
-
         binding?.btnToPost?.setOnClickListener {
             createPost()
         }
@@ -33,7 +39,9 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     override fun onDestroy() {
         super.onDestroy()
-        binding = null;
+        binding = null
+        dbManager = null
+        selectedPhotos = null
     }
 
     fun openGallery() {
@@ -75,9 +83,26 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         val tgState : Boolean? = binding?.addPostChipTelegram?.isCheckable
         val instState : Boolean? = binding?.addPostChipInstagram?.isCheckable
 
+        val map = HashMap<String, Boolean>()
+
+        map.put(Posts.COLUMN_NAME_VK, vkState!!)
+        map.put(Posts.COLUMN_NAME_VK_GROUP, vkGroupState!!)
+        map.put(Posts.COLUMN_NAME_TG, tgState!!)
+        map.put(Posts.COLUMN_NAME_INST, instState!!)
+
+        createPostsWithApi()
+
+        dbManager!!.open()
+        dbManager!!.createPost(text.toString(), selectedPhotos, map)
+
+
+
 
     }
 
+    private fun createPostsWithApi() {
+        TODO("Not yet implemented")
+    }
 
 
 }
