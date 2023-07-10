@@ -37,9 +37,15 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
     }
 
     override fun onDestroy() {
+        fillConfigFields()
         super.onDestroy()
         binding = null;
         dbManager = null;
+    }
+
+    override fun onDestroyView() {
+        fillConfigFields()
+        super.onDestroyView()
     }
 
     fun onClickSaveData(v: View) {

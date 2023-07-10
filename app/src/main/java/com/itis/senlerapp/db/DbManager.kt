@@ -61,10 +61,7 @@ class DbManager(val context: Context) {
     }
 
     fun createPost(text : String, paths : ArrayList<String>) {
-        for (path in paths) {
-            var fis : FileInputStream = FileInputStream(path)
-        }
-
+        TODO()
     }
 
 }
