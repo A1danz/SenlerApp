@@ -31,6 +31,12 @@ class DbManager(val context: Context) {
     @SuppressLint("Range")
     fun readConfig() : HashMap<String, String> {
         val map = HashMap<String, String>()
+        map[Settings.COLUMN_NAME_TG_TOKEN] = ""
+        map[Settings.COLUMN_NAME_TG_GROUP_ID] = ""
+        map[Settings.COLUMN_NAME_VK_GROUP_ID] = ""
+        map[Settings.COLUMN_NAME_VK_TOKEN] = ""
+        map[Settings.COLUMN_NAME_INST_TOKEN] = ""
+
 
         val cursor = db?.query(Settings.TABLE_NAME, null, null, null, null, null, null)
         with(cursor) {

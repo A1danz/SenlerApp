@@ -1,5 +1,6 @@
 package com.itis.senlerapp
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -13,7 +14,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.itis.senlerapp.databinding.FragmentAddPostBinding
 import com.itis.senlerapp.db.DbManager
 import com.itis.senlerapp.db.Posts
+import com.itis.senlerapp.db.Settings
 import java.net.URI
+import kotlin.RuntimeException
 
 class AddPostFragment : Fragment(R.layout.fragment_add_post) {
     private var binding : FragmentAddPostBinding? = null
@@ -74,7 +77,7 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
     fun createPost() {
         val text = binding?.tietAddPostText?.text
         if (text!!.isBlank() && selectedPhotos == null) {
-            Snackbar.make(requireView(), "Can't create empty post", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(requireView(), "Невозможно создать пустой пост.", Snackbar.LENGTH_SHORT).show()
             return
         }
 
@@ -90,6 +93,14 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         map.put(Posts.COLUMN_NAME_TG, tgState!!)
         map.put(Posts.COLUMN_NAME_INST, instState!!)
 
+        try {
+            checkSettings(map)
+        } catch (ex : RuntimeException) {
+            Snackbar.make(this.requireView(), ex.message.toString(), Snackbar.LENGTH_SHORT)
+                .show()
+            return
+        }
+
         createPostsWithApi()
 
         dbManager!!.open()
@@ -100,6 +111,59 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     private fun createPostsWithApi() {
         return
+    }
+
+    private fun checkSettings(statesMap : HashMap<String, Boolean>) {
+        dbManager?.open()
+        val settingsMap = dbManager?.readConfig()
+        settingsMap!!
+        dbManager?.close()
+
+        Log.e("TEST", statesMap[Posts.COLUMN_NAME_VK].toString())
+        Log.e("TEST", settingsMap[Settings.COLUMN_NAME_VK_TOKEN]!!.isBlank().toString())
+        Log.e("TEST", settingsMap[Settings.COLUMN_NAME_VK_TOKEN]!!.toString())
+
+
+        // check VK checkbox
+        if (statesMap[Posts.COLUMN_NAME_VK]!!) {
+            if (settingsMap[Settings.COLUMN_NAME_VK_TOKEN]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост на странице ВК, т.к токен отсутствует"
+            )
+        }
+
+        // check VK-group checkbox
+        if (statesMap[Posts.COLUMN_NAME_VK_GROUP]!!) {
+            if (settingsMap[Settings.COLUMN_NAME_VK_TOKEN]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост в группе ВК, т.к отсуствует токен"
+            )
+            if (settingsMap[Settings.COLUMN_NAME_VK_GROUP_ID]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост в группе ВК, т.к отсуствует id группы ВК"
+            )
+        }
+
+
+        // check Telegram-checkbox
+        if (statesMap[Posts.COLUMN_NAME_TG]!!) {
+            if (settingsMap[Settings.COLUMN_NAME_VK_TOKEN]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост в Telegram, т.к отсутствует токен Telegram"
+            )
+            if (settingsMap[Settings.COLUMN_NAME_TG_GROUP_ID]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост в Telegram, т.к отсутствует id группы в Telegram"
+            )
+        }
+
+        //check Instagram-state
+        if (statesMap[Posts.COLUMN_NAME_INST]!!) {
+            if (settingsMap[Settings.COLUMN_NAME_INST_TOKEN]!!.isBlank()) throw RuntimeException(
+                "Невозможно создать пост в Instagram, т.к отсутсвует токен Instagram."
+            )
+
+            if (selectedPhotos == null || selectedPhotos!!.size == 0) throw RuntimeException(
+                "Невозможно создать пост в Instagram, т.к вы не выбрали фото."
+            )
+        }
+
+
     }
 
 
