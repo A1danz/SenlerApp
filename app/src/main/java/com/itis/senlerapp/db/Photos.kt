@@ -6,7 +6,7 @@ object Photos : BaseColumns {
     const val TABLE_NAME = "photos"
 
     const val COLUMN_NAME_POST_ID = "post_id"
-    const val COLUMN_NAME_PHOTO_FILE = "photo_file"
+    const val COLUMN_NAME_PHOTO_PATH = "photo_path"
 
     const val DATABASE_VERSION = 1
     const val DATABASE_NAME = "SenlerDb.db"
@@ -15,7 +15,7 @@ object Photos : BaseColumns {
         "CREATE TABLE IF NOT EXISTS $TABLE_NAME (" +
                 "${BaseColumns._ID} INTEGER PRIMARY KEY," +
                 "$COLUMN_NAME_POST_ID INTEGER," +
-                "$COLUMN_NAME_PHOTO_FILE BLOB)"
+                "$COLUMN_NAME_PHOTO_PATH TEXT)"
 
     const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS $TABLE_NAME"
 }
