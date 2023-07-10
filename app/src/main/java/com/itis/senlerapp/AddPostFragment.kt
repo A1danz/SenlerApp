@@ -31,8 +31,6 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         }
     }
 
-
-
     override fun onDestroy() {
         super.onDestroy()
         binding = null;
@@ -71,6 +69,13 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
             Snackbar.make(requireView(), "Can't create empty post", Snackbar.LENGTH_SHORT).show()
             return
         }
+
+        val vkState : Boolean? = binding?.addPostChipVk?.isCheckable
+        val vkGroupState : Boolean? = binding?.addPostChipVkGroup?.isCheckable
+        val tgState : Boolean? = binding?.addPostChipTelegram?.isCheckable
+        val instState : Boolean? = binding?.addPostChipInstagram?.isCheckable
+
+
     }
 
 
