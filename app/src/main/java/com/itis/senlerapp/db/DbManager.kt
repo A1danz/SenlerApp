@@ -89,7 +89,7 @@ class DbManager(val context: Context) {
         insertPhotos(id, photoPaths)
     }
 
-    private fun insertPhotos(postId : Int, photoPaths: MutableList<Uri>?) {
+    fun insertPhotos(postId : Int, photoPaths: MutableList<Uri>?) {
         if (photoPaths == null) return
         for (photoPath in photoPaths) {
             var values = ContentValues().apply {
@@ -101,7 +101,7 @@ class DbManager(val context: Context) {
     }
 
     @SuppressLint("Range")
-    private fun getPosts() : ArrayList<Post> {
+    fun getPosts() : ArrayList<Post> {
         val posts = ArrayList<Post>()
         val cursor = db!!.query(Posts.TABLE_NAME, null, null, null,
             null, null, null)
