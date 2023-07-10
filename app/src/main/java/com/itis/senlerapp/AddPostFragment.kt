@@ -115,7 +115,7 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         createPostsWithApi()
 
         dbManager!!.open()
-        dbManager!!.createPost(text.toString(), selectedPhotos, map)
+        dbManager!!.createPost(text.toString(), selectedPhotos, map, System.currentTimeMillis())
 
         Snackbar.make(this.requireView(), "Пост успешно создан!", Snackbar.LENGTH_SHORT).show()
     }
