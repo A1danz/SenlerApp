@@ -1,5 +1,6 @@
 package com.itis.senlerapp
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
@@ -35,13 +38,14 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
         private val timeTextView: TextView = itemView.findViewById(R.id.tv_item_post_time)
         private val photosTableLayout: TableLayout = itemView.findViewById(R.id.tl_item_post_photos)
 
+        @SuppressLint("SimpleDateFormat")
         fun bind(post: Post) {
             textTextView.text = post.text
             vkImageView.visibility = if (post.vkState) View.VISIBLE else View.GONE
             vkGroupImageView.visibility = if (post.vkGroupState) View.VISIBLE else View.GONE
             tgImageView.visibility = if (post.tgState) View.VISIBLE else View.GONE
             instGroupImageView.visibility = if (post.instState) View.VISIBLE else View.GONE
-            timeTextView.text = post.date.toString()
+            timeTextView.text = SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(Date(post.date))
             setupPhotos(post.photos)
         }
 
