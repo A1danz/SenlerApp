@@ -21,6 +21,7 @@ import com.itis.senlerapp.db.DbManager
 import com.itis.senlerapp.db.Posts
 import com.itis.senlerapp.db.Settings
 import java.net.URI
+import java.util.LinkedList
 import kotlin.RuntimeException
 
 class AddPostFragment : Fragment(R.layout.fragment_add_post) {
@@ -177,5 +178,11 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     }
 
+    fun deletePhoto(uri: Uri) {
+        val list : ArrayList<Uri> = selectedPhotos as ArrayList<Uri>
+        list.remove(uri)
+        selectedPhotos = list
+        rvAdapterPhotos?.updateDataset(selectedPhotos)
+    }
 
 }
