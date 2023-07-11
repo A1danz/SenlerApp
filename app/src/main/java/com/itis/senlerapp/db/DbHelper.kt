@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.provider.ContactsContract.Contacts.Photo
 
-class DbHelper(context: Context) : SQLiteOpenHelper(context, "SenlerDB", null, 2) {
+class DbHelper(context: Context) : SQLiteOpenHelper(context, "SenlerDB", null, 1) {
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(Settings.SQL_CREATE_ENTRIES)
         db.execSQL(Posts.SQL_CREATE_ENTRIES)
@@ -24,7 +24,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, "SenlerDB", null, 2
     }
     companion object {
         // If you change the database schema, you must increment the database version.
-        const val DATABASE_VERSION = 2
+        const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "SenlerDb.db"
     }
 
