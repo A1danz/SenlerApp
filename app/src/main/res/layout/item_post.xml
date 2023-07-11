@@ -78,32 +78,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
-        android:id="@+id/tl_item_post_photos"
+    <LinearLayout
+        android:id="@+id/ll_item_post_photos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_item_post_text">
-
-        <TableRow
-            android:id="@+id/tr_item_post_1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-
-        <TableRow
-            android:id="@+id/tr_item_post_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <TableRow
-            android:id="@+id/tr_item_post_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </TableLayout>
+        app:layout_constraintTop_toBottomOf="@id/tv_item_post_text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

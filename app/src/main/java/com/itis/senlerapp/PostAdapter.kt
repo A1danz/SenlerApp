@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
@@ -36,7 +37,7 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
         private val tgImageView: ImageView = itemView.findViewById(R.id.iv_ip_tg)
         private val instGroupImageView: ImageView = itemView.findViewById(R.id.iv_ip_inst_group)
         private val timeTextView: TextView = itemView.findViewById(R.id.tv_item_post_time)
-        private val photosTableLayout: TableLayout = itemView.findViewById(R.id.tl_item_post_photos)
+        private val photosTableLayout: LinearLayout = itemView.findViewById(R.id.ll_item_post_photos)
 
         @SuppressLint("SimpleDateFormat")
         fun bind(post: Post) {
@@ -50,22 +51,20 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostAdap
         }
 
         private fun setupPhotos(photos: MutableList<Uri>) {
-            // Очищаем все предыдущие изображения в TableLayout
+            // Очищаем все предыдущие изображения в LinearLayout
             photosTableLayout.removeAllViews()
 
-            // Создаем TableRow и добавляем в него ImageView для каждого фото
-            val row = TableRow(itemView.context)
+            // Добавляем ImageView для каждого фото в LinearLayout
             for (photoUri in photos) {
                 val imageView = ImageView(itemView.context)
                 imageView.setImageURI(photoUri)
                 imageView.scaleType = ImageView.ScaleType.CENTER_CROP
-                imageView.layoutParams =
-                    TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                row.addView(imageView)
+                val layoutParams = LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+                imageView.layoutParams = layoutParams
+                photosTableLayout.addView(imageView)
             }
-
-            // Добавляем TableRow в TableLayout
-            photosTableLayout.addView(row)
         }
     }
 }
