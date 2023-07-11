@@ -21,6 +21,7 @@ import com.itis.senlerapp.db.DbManager
 import com.itis.senlerapp.db.Posts
 import com.itis.senlerapp.db.Settings
 import java.net.URI
+import java.util.LinkedList
 import kotlin.RuntimeException
 
 class AddPostFragment : Fragment(R.layout.fragment_add_post) {
@@ -92,10 +93,10 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
             return
         }
 
-        val vkState : Boolean? = binding?.addPostChipVk?.isCheckable
-        val vkGroupState : Boolean? = binding?.addPostChipVkGroup?.isCheckable
-        val tgState : Boolean? = binding?.addPostChipTelegram?.isCheckable
-        val instState : Boolean? = binding?.addPostChipInstagram?.isCheckable
+        val vkState : Boolean? = binding?.addPostChipVk?.isChecked
+        val vkGroupState : Boolean? = binding?.addPostChipVkGroup?.isChecked
+        val tgState : Boolean? = binding?.addPostChipTelegram?.isChecked
+        val instState : Boolean? = binding?.addPostChipInstagram?.isChecked
 
         val map = HashMap<String, Boolean>()
 
@@ -177,5 +178,11 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
 
     }
 
+    fun deletePhoto(uri: Uri) {
+        val list : ArrayList<Uri> = selectedPhotos as ArrayList<Uri>
+        list.remove(uri)
+        selectedPhotos = list
+        rvAdapterPhotos?.updateDataset(selectedPhotos)
+    }
 
 }
