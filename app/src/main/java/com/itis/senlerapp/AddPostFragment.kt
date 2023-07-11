@@ -20,6 +20,11 @@ import com.itis.senlerapp.databinding.FragmentAddPostBinding
 import com.itis.senlerapp.db.DbManager
 import com.itis.senlerapp.db.Posts
 import com.itis.senlerapp.db.Settings
+import android.content.ContentResolver
+import androidx.core.net.toFile
+import androidx.core.net.toUri
+import java.io.File
+import java.io.FileOutputStream
 import java.net.URI
 import java.util.LinkedList
 import kotlin.RuntimeException
@@ -116,13 +121,46 @@ class AddPostFragment : Fragment(R.layout.fragment_add_post) {
         createPostsWithApi()
 
         dbManager!!.open()
-        dbManager!!.createPost(text.toString(), selectedPhotos, map, System.currentTimeMillis())
+        dbManager!!.createPost(text.toString(), copyPhotos(selectedPhotos), map, System.currentTimeMillis())
 
         Snackbar.make(this.requireView(), "Пост успешно создан!", Snackbar.LENGTH_SHORT).show()
     }
 
     private fun createPostsWithApi() {
         return
+    }
+
+    private fun copyPhotos(photos : MutableList<Uri>?) : MutableList<Uri>? {
+        if (photos == null) return photos
+        val appDir = requireActivity().filesDir
+        val copiedUris : MutableList<Uri> = mutableListOf()
+        val appDirFile = File(appDir.absolutePath).resolveSibling("files")
+        for(photo in photos) {
+            copiedUris.add(copyFile(photo, appDirFile))
+        }
+
+        return copiedUris
+    }
+
+    fun copyFile(uri: Uri, destinationDirectory: File) : Uri {
+        var contentResolver : ContentResolver = requireContext().contentResolver
+
+        val inputStream = contentResolver.openInputStream(uri)
+        val fileName = (uri.path?.let { File(it) })?.name
+
+        val outputFile = File(destinationDirectory, fileName)
+
+        inputStream.use { input ->
+            FileOutputStream(outputFile).use { output ->
+                val buffer = ByteArray(4 * 1024) // 4KB buffer
+                var bytesRead: Int
+                while (input!!.read(buffer).also { bytesRead = it } >= 0) {
+                    output.write(buffer, 0, bytesRead)
+                }
+                output.flush()
+            }
+        }
+        return outputFile.toUri()
     }
 
     private fun checkSettings(statesMap : HashMap<String, Boolean>) {

@@ -104,7 +104,7 @@ class DbManager(val context: Context) {
     fun getPosts() : ArrayList<Post> {
         val posts = ArrayList<Post>()
         val cursor = db!!.query(Posts.TABLE_NAME, null, null, null,
-            null, null, null)
+            null, null, "${Posts.COLUMN_NAME_DATE} DESC")
         with(cursor) {
             while(this?.moveToNext()!!) {
                 val id = cursor.getInt(cursor.getColumnIndex(Posts.COLUMN_NAME_ID))

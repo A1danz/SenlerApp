@@ -85,6 +85,8 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_tall_divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_item_post_text" />
